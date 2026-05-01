@@ -12,24 +12,17 @@ body {
 
     background-image: url('arg.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-/* 🔥 overlay para mejorar visibilidad del fondo */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.25);
-    z-index: -1;
 }
 
 @media (max-width: 768px) {
     body {
         background-attachment: scroll;
-        background-position: center top;
+        background-size: contain;
+        background-position: top;
+        background-color: #000;
     }
 }
 
@@ -88,6 +81,7 @@ h2 {
     font-size: 1.8rem;
 }
 
+/* 🔥 SNAP */
 .slider-container {
     position: relative;
     display: flex;
@@ -96,10 +90,15 @@ h2 {
 
 .slider {
     display: flex;
-    overflow: hidden;
+    overflow-x: auto;
     scroll-behavior: smooth;
     gap: 15px;
     padding: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
 }
 
 .card {
@@ -116,6 +115,8 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    scroll-snap-align: center;
 }
 
 .card img {
@@ -175,11 +176,6 @@ footer {
         font-size: 0.9rem;
     }
 
-    .slider {
-        gap: 10px;
-        padding: 10px 5px;
-    }
-
     .card {
         min-width: 75%;
         max-width: 75%;
@@ -188,33 +184,6 @@ footer {
 
     .card img {
         height: 100px;
-    }
-
-    .card h3 {
-        font-size: 0.95rem;
-    }
-
-    .card p {
-        font-size: 0.8rem;
-    }
-
-    .flecha {
-        font-size: 14px;
-        padding: 5px;
-    }
-}
-
-@media (min-width: 1200px) {
-    section {
-        max-width: 1200px;
-    }
-
-    .header-text h1 {
-        font-size: 40px;
-    }
-
-    .header-text p {
-        font-size: 18px;
     }
 }
 </style>
@@ -317,10 +286,6 @@ function scrollSlider(direccion) {
         behavior: "smooth"
     });
 }
-
-const slider = document.getElementById("slider");
-slider.addEventListener("wheel", e => e.preventDefault());
-slider.addEventListener("touchmove", e => e.preventDefault());
 
 const audio = document.getElementById("camelias");
 audio.volume = 0.2;
