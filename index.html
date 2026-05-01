@@ -42,19 +42,19 @@ header img {
 
 .header-text h1 {
     margin: 0;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 
 .header-text p {
     margin: 5px 0 0;
-    font-size: 2vw;
+    font-size: 1.8vw;
 }
 
 section {
-    padding: 40px;
-    margin: 30px auto;
+    padding: 35px;
+    margin: 25px auto;
     border-radius: 25px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     max-width: 1000px;
 }
@@ -69,7 +69,7 @@ section img {
 
 h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .slider-container {
@@ -89,7 +89,7 @@ h2 {
 .card {
     min-width: 220px;
     max-width: 250px;
-    background: white;
+    background: rgba(255,255,255,0.7); /* 🔥 más transparente */
     border-radius: 15px;
     padding: 10px;
     text-align: center;
@@ -97,8 +97,11 @@ h2 {
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+/* 🔥 IMÁGENES ARREGLADAS */
 .card img {
     width: 100%;
+    height: 140px;
+    object-fit: cover;
     border-radius: 10px;
 }
 
@@ -119,7 +122,7 @@ footer {
     color: white;
 }
 
-/* 📱 CELULAR MEJORADO */
+/* 📱 CELULAR OPTIMIZADO */
 @media (max-width: 768px) {
 
     section {
@@ -128,15 +131,19 @@ footer {
     }
 
     .header-text h1 {
-        font-size: 7vw;
+        font-size: 5vw;
     }
 
     .header-text p {
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
     }
 
     .slider {
@@ -145,17 +152,21 @@ footer {
     }
 
     .card {
-        min-width: 75%;
-        max-width: 75%;
-        padding: 15px;
+        min-width: 70%;
+        max-width: 70%;
+        padding: 12px;
+    }
+
+    .card img {
+        height: 110px;
     }
 
     .card h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .card p {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .flecha {
