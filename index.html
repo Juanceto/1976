@@ -6,7 +6,6 @@
 <head>
 <title>Dictadura en Argentina</title>
 
-<!-- FUENTE STENCIL -->
 <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
@@ -22,7 +21,7 @@ body {
     background-size: cover;
 }
 
-/* FUENTE SOLO FUERA DE CARDS */
+/* FUENTE STENCIL */
 header h1,
 header p,
 section h2,
@@ -58,8 +57,15 @@ header img {
 .header-text {
     position: absolute;
     text-align: center;
-    color: white;
     width: 100%;
+}
+
+.header-text h1 {
+    color: #d9d9d9;
+}
+
+.header-text p {
+    color: #eeeeee;
 }
 
 /* SECCIONES */
@@ -83,15 +89,15 @@ section img {
 /* CARD */
 .card {
     display: none;
-    width: 90%;
-    max-width: 420px;
+    width: 95%;
+    max-width: 480px;
     margin: 20px auto;
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 12px;
     text-align: center;
-    height: 240px;
-    display: flex;
+    height: 260px;
+
     flex-direction: column;
 }
 
@@ -102,7 +108,7 @@ section img {
 /* IMAGEN */
 .card img {
     width: 100%;
-    height: 110px;
+    height: 120px;
     object-fit: cover;
     border-radius: 15px;
 }
@@ -249,7 +255,7 @@ function mover(dir) {
     mostrar(index);
 }
 
-/* AJUSTE TEXTO CARDS */
+/* AJUSTE TEXTO */
 function ajustarTexto() {
     document.querySelectorAll(".card").forEach(card => {
         const p = card.querySelector("p");
