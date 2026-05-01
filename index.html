@@ -10,14 +10,17 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 
-    background: url('fondo.jpg') no-repeat center center;
-    background-size: contain; /* 🔥 imagen completa */
-    background-color: black;
+    background-image: url('fondo.jpg');
+    background-size: cover; /* 🔥 sin negro */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
+/* 📱 celular */
 @media (max-width: 768px) {
     body {
-        background-size: contain;
+        background-attachment: scroll;
         background-position: center top;
     }
 }
@@ -49,7 +52,7 @@ section {
     margin: 20px auto;
     border-radius: 25px;
 
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.6); /* 🔥 blanco transparente */
     backdrop-filter: blur(6px);
 
     max-width: 1000px;
@@ -67,7 +70,7 @@ h2 {
     text-align: center;
 }
 
-/* 🔥 SLIDER TIPO PAGINA */
+/* 🔥 SLIDER */
 .slider-container {
     position: relative;
     overflow: hidden;
@@ -75,25 +78,24 @@ h2 {
 
 .slider {
     display: flex;
+    width: 100%;
     transition: transform 0.4s ease;
 }
 
 .card {
     min-width: 100%;
-    box-sizing: border-box;
-
     padding: 20px;
     text-align: center;
 
-    background: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.85); /* 🔥 blanco más claro */
     border-radius: 20px;
 }
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
-    object-position: center; /* 🔥 centra caras */
+    object-position: center;
     border-radius: 15px;
 }
 
@@ -107,6 +109,7 @@ h2 {
     padding: 10px;
     cursor: pointer;
     border-radius: 50%;
+    z-index: 10;
 }
 
 .flecha.izq { left: 10px; }
@@ -133,7 +136,7 @@ footer {
 
 <section>
     <h2>El inicio de un gobierno de facto</h2>
-    <img src="Videla.jpg">
+    <img src="Jorge.jpg">
     <p>
         El 24 de marzo de 1976 comenzó en Argentina una dictadura militar que tomó el poder mediante un golpe de Estado. 
         Este período, conocido como el Proceso de Reorganización Nacional, estuvo marcado por la represion, la censura y la violación de los derechos humanos. 
@@ -152,7 +155,7 @@ footer {
         <div class="slider" id="slider">
 
             <div class="card">
-                <img src="Jorge.jpg">
+                <img src="Videla.jpg">
                 <h3>Jorge Rafael Videla</h3>
                 <p>Este fue liderado por el teniente general Jorge Rafael Videla(1976-1981) uno de los mas conocidos.</p>
             </div>
@@ -170,7 +173,7 @@ footer {
             </div>
 
             <div class="card">
-                <img src="Bignone.png" style="object-position: center top;"> <!-- 🔥 fix cara -->
+                <img src="Bignone.png" style="object-position:center top;">
                 <h3>Reynaldo Bignone</h3>
                 <p>Terminando el gobierno militar con Reynaldo Benito Bignone(1982-1983) quien llamo a elecciones democraticas el 30 de octubre de 1983.</p>
             </div>
@@ -212,16 +215,17 @@ footer {
 
 <script>
 let index = 0;
-const slider = document.getElementById("slider");
-const total = slider.children.length;
 
 function mover(dir) {
+    const slider = document.getElementById("slider");
+    const total = slider.children.length;
+
     index += dir;
 
-    if(index < 0) index = 0;
-    if(index >= total) index = total - 1;
+    if (index < 0) index = 0;
+    if (index >= total) index = total - 1;
 
-    slider.style.transform = `translateX(-${index * 100}%)`;
+    slider.style.transform = "translateX(-" + (index * 100) + "%)";
 }
 
 const audio = document.getElementById("camelias");
