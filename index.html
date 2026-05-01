@@ -76,30 +76,31 @@ section img {
     width: 100%;
 }
 
-/* SLIDER PAGINADO */
+/* SLIDER */
 .slider {
     display: flex;
     transition: transform 0.4s ease;
+    align-items: center;
 }
 
-/* CARD PANTALLA COMPLETA */
+/* CARD COMPACTA */
 .card {
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 85%;
+    max-width: 85%;
+    margin: auto;
     flex-shrink: 0;
 
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.95);
     border-radius: 20px;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
 }
 
-/* IMAGEN COMPACTA */
+/* IMAGEN */
 .card img {
     width: 100%;
-    height: 160px;
+    height: 140px;
     object-fit: cover;
-    object-position: center;
     border-radius: 15px;
 }
 
@@ -108,17 +109,17 @@ section img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: black;
+    background: rgba(0,0,0,0.7);
     color: white;
     border: none;
-    padding: 12px;
+    padding: 10px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
 }
 
-.izq { left: 5px; }
-.der { right: 5px; }
+.izq { left: -20px; }
+.der { right: -20px; }
 
 /* FOOTER */
 footer {
@@ -131,7 +132,7 @@ footer {
 /* CELULAR */
 @media (max-width: 600px) {
     .card img {
-        height: 140px;
+        height: 120px;
     }
 
     h1 { font-size: 22px; }
@@ -182,9 +183,7 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 <div class="card">
 <img src="viola.jpg">
 <h3>Roberto Viola</h3>
-
-    
-<p><br>General del ejercito, Roberto Viola(1981-1981)</p>
+<p>General del ejercito, Roberto Viola(1981-1981)</p>
 </div>
 
 <div class="card">
@@ -232,7 +231,6 @@ Frente a esta situacion, surgieron organizaciones de derechos humanos como las M
 <p>Florecerán Pañuelos...<br>E.E.S.T N°3 Islas Malvinas Lanús</p>
 </footer>
 
-<!-- AUDIO -->
 <audio id="camelias" autoplay loop>
     <source src="camelias.mp3" type="audio/mpeg">
 </audio>
@@ -254,7 +252,6 @@ function mover(dir) {
     slider.style.transform = `translateX(-${index * ancho}px)`;
 }
 
-/* AUDIO */
 const audio = document.getElementById("camelias");
 audio.volume = 0.2;
 
