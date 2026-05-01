@@ -10,19 +10,15 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 
-    background-image: url('arg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: url('fondo.jpg') no-repeat center center;
+    background-size: contain; /* 🔥 imagen completa */
+    background-color: black;
 }
 
 @media (max-width: 768px) {
     body {
-        background-attachment: scroll;
         background-size: contain;
-        background-position: top;
-        background-color: #000;
+        background-position: center top;
     }
 }
 
@@ -30,6 +26,9 @@ header {
     position: relative;
     text-align: center;
     color: white;
+    border-radius: 80px;
+    overflow: hidden;
+    margin: 20px;
 }
 
 header img {
@@ -45,26 +44,14 @@ header img {
     transform: translate(-50%, -50%);
 }
 
-.header-text h1 {
-    margin: 0;
-    font-size: 4vw;
-}
-
-.header-text p {
-    margin: 5px 0 0;
-    font-size: 1.8vw;
-}
-
 section {
-    padding: 35px;
-    margin: 25px auto;
+    padding: 30px;
+    margin: 20px auto;
     border-radius: 25px;
 
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255,255,255,0.5);
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
 
-    box-shadow: 0 0 15px rgba(0,0,0,0.25);
     max-width: 1000px;
 }
 
@@ -78,113 +65,58 @@ section img {
 
 h2 {
     text-align: center;
-    font-size: 1.8rem;
 }
 
-/* 🔥 SNAP */
+/* 🔥 SLIDER TIPO PAGINA */
 .slider-container {
     position: relative;
-    display: flex;
-    align-items: center;
+    overflow: hidden;
 }
 
 .slider {
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 15px;
-    padding: 10px;
-    scroll-snap-type: x mandatory;
-}
-
-.slider::-webkit-scrollbar {
-    display: none;
+    transition: transform 0.4s ease;
 }
 
 .card {
-    min-width: 220px;
-    max-width: 250px;
-    height: 320px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 15px;
-    padding: 12px;
+    min-width: 100%;
+    box-sizing: border-box;
+
+    padding: 20px;
     text-align: center;
-    flex-shrink: 0;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    scroll-snap-align: center;
+    background: rgba(255,255,255,0.6);
+    border-radius: 20px;
 }
 
 .card img {
     width: 100%;
-    height: 120px;
+    height: 200px;
     object-fit: cover;
-    border-radius: 10px;
-}
-
-.card h3 {
-    margin: 8px 0;
-    font-size: 1rem;
-}
-
-.card p {
-    font-size: 0.85rem;
-    overflow: hidden;
+    object-position: center; /* 🔥 centra caras */
+    border-radius: 15px;
 }
 
 .flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background: #111;
     color: white;
     border: none;
-    font-size: 20px;
+    padding: 10px;
     cursor: pointer;
-    padding: 8px;
     border-radius: 50%;
 }
+
+.flecha.izq { left: 10px; }
+.flecha.der { right: 10px; }
 
 footer {
     text-align: center;
     padding: 20px;
     background: #111;
     color: white;
-}
-
-@media (max-width: 768px) {
-
-    section {
-        padding: 15px;
-        margin: 10px;
-    }
-
-    .header-text h1 {
-        font-size: 5vw;
-    }
-
-    .header-text p {
-        font-size: 3vw;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    p {
-        font-size: 0.9rem;
-    }
-
-    .card {
-        min-width: 75%;
-        max-width: 75%;
-        height: 280px;
-    }
-
-    .card img {
-        height: 100px;
-    }
 }
 </style>
 </head>
@@ -213,12 +145,14 @@ footer {
     <h2>Presidentes del Proceso</h2>
 
     <div class="slider-container">
-        <button class="flecha" onclick="scrollSlider(-1)">❮</button>
+
+        <button class="flecha izq" onclick="mover(-1)">❮</button>
+        <button class="flecha der" onclick="mover(1)">❯</button>
 
         <div class="slider" id="slider">
 
             <div class="card">
-                <img src="Videla.jpg">
+                <img src="Jorge.jpg">
                 <h3>Jorge Rafael Videla</h3>
                 <p>Este fue liderado por el teniente general Jorge Rafael Videla(1976-1981) uno de los mas conocidos.</p>
             </div>
@@ -236,14 +170,12 @@ footer {
             </div>
 
             <div class="card">
-                <img src="Bignone.png">
+                <img src="Bignone.png" style="object-position: center top;"> <!-- 🔥 fix cara -->
                 <h3>Reynaldo Bignone</h3>
                 <p>Terminando el gobierno militar con Reynaldo Benito Bignone(1982-1983) quien llamo a elecciones democraticas el 30 de octubre de 1983.</p>
             </div>
 
         </div>
-
-        <button class="flecha" onclick="scrollSlider(1)">❯</button>
     </div>
 </section>
 
@@ -279,12 +211,17 @@ footer {
 </audio>
 
 <script>
-function scrollSlider(direccion) {
-    const slider = document.getElementById("slider");
-    slider.scrollBy({
-        left: direccion * 250,
-        behavior: "smooth"
-    });
+let index = 0;
+const slider = document.getElementById("slider");
+const total = slider.children.length;
+
+function mover(dir) {
+    index += dir;
+
+    if(index < 0) index = 0;
+    if(index >= total) index = total - 1;
+
+    slider.style.transform = `translateX(-${index * 100}%)`;
 }
 
 const audio = document.getElementById("camelias");
@@ -295,11 +232,8 @@ document.addEventListener("click", () => {
 });
 
 document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-        audio.pause();
-    } else {
-        audio.play();
-    }
+    if (document.hidden) audio.pause();
+    else audio.play();
 });
 </script>
 
