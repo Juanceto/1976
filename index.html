@@ -119,31 +119,48 @@ footer {
     color: white;
 }
 
+/* 📱 CELULAR MEJORADO */
 @media (max-width: 768px) {
+
     section {
-        padding: 20px;
-        margin: 15px;
+        padding: 15px;
+        margin: 10px;
     }
 
     .header-text h1 {
-        font-size: 6vw;
+        font-size: 7vw;
     }
 
     .header-text p {
-        font-size: 3.5vw;
+        font-size: 4vw;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    .slider {
+        gap: 10px;
+        padding: 10px 5px;
     }
 
     .card {
-        min-width: 180px;
+        min-width: 75%;
+        max-width: 75%;
+        padding: 15px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .card p {
+        font-size: 0.9rem;
     }
 
     .flecha {
-        font-size: 16px;
-        padding: 6px;
+        font-size: 14px;
+        padding: 5px;
     }
 }
 
@@ -265,8 +282,7 @@ const slider = document.getElementById("slider");
 slider.addEventListener("wheel", e => e.preventDefault());
 slider.addEventListener("touchmove", e => e.preventDefault());
 
-
-const audio = document.getElementById("musica");
+const audio = document.getElementById("camelias");
 audio.volume = 0.2;
 
 document.addEventListener("click", () => {
