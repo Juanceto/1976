@@ -29,7 +29,7 @@ body {
 header {
     height: 30vh;
     margin: 30px 10px;
-    border-radius: 45x;
+    border-radius: 45px;
     overflow: hidden;
     position: relative;
 
@@ -100,17 +100,15 @@ section img {
     border-radius: 15px;
 }
 
-/* 🔥 TEXTO AJUSTADO */
+/* TEXTO */
 .card h3 {
     margin: 4px 0;
     font-size: 14px;
-    line-height: 1.2;
 }
 
 .card p {
-    font-size: 12px;
-    line-height: 1.25;
-    overflow: hidden;
+    font-size: 13px;
+    line-height: 1.2;
 }
 
 /* FLECHAS */
@@ -124,7 +122,6 @@ section img {
     padding: 6px;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 10;
 }
 
 .izq { left: 8px; }
@@ -136,12 +133,6 @@ footer {
     padding: 20px;
     background: rgba(0,0,0,0.7);
     color: white;
-}
-
-@media (max-width: 600px) {
-    .card {
-        height: 220px;
-    }
 }
 </style>
 </head>
@@ -216,7 +207,7 @@ Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo d
 <h2>Abuelas/Madres de Plaza de Mayo</h2>
 <img src="Abuelas.jpg">
 <p>
-Frente a esta situacion, surgieron organizaciones de derechos humanos como las Madres de Plaza de Mayo y las Abuelas de Plaza de Mayo. Estas mujeres comenzaron a reunirse en la Plaza de Mayo para reclamar por sus hijos y nietos desaparecidos,caminaban dando vueltas alrededor de la plaza, con un pañuelo blanco en la cabeza que simbolizaba el pañal de los bebes desaparecidos. 
+Frente a esta situacion, surgieron organizaciones de derechos humanos como las Madres de Plaza de Mayo y las Abuelas de Plaza de Mayo.<br> Estas mujeres comenzaron a reunirse en la Plaza de Mayo para reclamar por sus hijos y nietos desaparecidos,caminaban dando vueltas alrededor de la plaza, con un pañuelo blanco en la cabeza que simbolizaba el pañal de los bebes desaparecidos. 
 <img src="Hebe.jpg">    
 <p></p>Entre sus principales referentes se destacaron Hebe de Bonafini y Estela de Carlotto, quienes se convirtieron en símbolos de la lucha por la memoria, la verdad y la justicia. Gracias a su trabajo, se logró recuperar la identidad de muchos nietos apropiados durante la dictadura.
 <img src="Nunca.png">
@@ -229,7 +220,6 @@ Frente a esta situacion, surgieron organizaciones de derechos humanos como las M
 <p>Florecerán Pañuelos...<br>E.E.S.T N°3 Islas Malvinas Lanús</p>
 </footer>
 
-<!-- AUDIO -->
 <audio id="camelias" autoplay loop>
     <source src="camelias.mp3" type="audio/mpeg">
 </audio>
@@ -245,12 +235,25 @@ function mostrar(i) {
 
 function mover(dir) {
     index += dir;
-
     if (index < 0) index = 0;
     if (index >= cards.length) index = cards.length - 1;
-
     mostrar(index);
 }
+
+/* AJUSTE AUTOMÁTICO DE TEXTO SOLO EN CARDS */
+function ajustarTexto() {
+    document.querySelectorAll(".card").forEach(card => {
+        const p = card.querySelector("p");
+        let size = 13;
+
+        while (card.scrollHeight > card.clientHeight && size > 9) {
+            size--;
+            p.style.fontSize = size + "px";
+        }
+    });
+}
+
+window.onload = ajustarTexto;
 
 /* AUDIO */
 const audio = document.getElementById("camelias");
