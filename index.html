@@ -74,30 +74,36 @@ section img {
     position: relative;
     overflow: hidden;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .slider {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     transition: transform 0.4s ease;
+    width: 100%;
+    justify-content: center;
 }
 
 /* CARD */
 .card {
-    min-width: 85%;
+    min-width: 80%;
+    max-width: 80%;
     flex-shrink: 0;
-    margin: auto;
 
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.9);
     border-radius: 20px;
     padding: 15px;
     text-align: center;
 }
 
+/* IMAGENES DEL SLIDER (CLAVE PARA QUE NO SE ESTIRE) */
 .card img {
     width: 100%;
-    height: 170px;
+    height: 180px;
     object-fit: cover;
+    object-position: center;
     border-radius: 15px;
 }
 
@@ -129,24 +135,17 @@ footer {
 /* CELULAR */
 @media (max-width: 600px) {
     .card {
-        min-width: 90%;
+        min-width: 85%;
+        max-width: 85%;
     }
 
     .card img {
-        height: 150px;
+        height: 160px;
     }
 
-    h1 {
-        font-size: 22px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    p {
-        font-size: 14px;
-    }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    p { font-size: 14px; }
 }
 </style>
 </head>
@@ -240,6 +239,11 @@ Frente a esta situacion, surgieron organizaciones de derechos humanos como las M
 <p>Florecerán Pañuelos...<br>E.E.S.T N°3 Islas Malvinas Lanús</p>
 </footer>
 
+<!-- AUDIO -->
+<audio id="camelias" autoplay loop>
+    <source src="camelias.mp3" type="audio/mpeg">
+</audio>
+
 <script>
 let index = 0;
 
@@ -253,10 +257,28 @@ function mover(dir) {
     if (index < 0) index = 0;
     if (index >= total) index = total - 1;
 
-    const cardWidth = cards[0].offsetWidth + 25;
+    const cardWidth = cards[0].offsetWidth + 20;
 
     slider.style.transform = `translateX(-${index * cardWidth}px)`;
 }
+
+/* AUDIO CONTROL PRO */
+const audio = document.getElementById("camelias");
+audio.volume = 0.2;
+
+// autoplay seguro
+document.addEventListener("click", () => {
+    audio.play();
+}, { once: true });
+
+// pausar si cambias de pestaña
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        audio.pause();
+    } else {
+        audio.play();
+    }
+});
 </script>
 
 </body>
