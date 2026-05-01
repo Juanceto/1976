@@ -6,6 +6,9 @@
 <head>
 <title>Dictadura en Argentina</title>
 
+<!-- FUENTE STENCIL -->
+<link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
 * {
     margin: 0;
@@ -17,6 +20,15 @@ body {
     font-family: Arial;
     background: url('arg.jpg') no-repeat center center fixed;
     background-size: cover;
+}
+
+/* FUENTE SOLO FUERA DE CARDS */
+header h1,
+header p,
+section h2,
+section > p,
+footer {
+    font-family: 'Stardos Stencil', serif;
 }
 
 .wrapper {
@@ -32,7 +44,6 @@ header {
     border-radius: 45px;
     overflow: hidden;
     position: relative;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -72,18 +83,14 @@ section img {
 /* CARD */
 .card {
     display: none;
-
     width: 90%;
     max-width: 420px;
     margin: 20px auto;
-
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 12px;
     text-align: center;
-
     height: 240px;
-
     display: flex;
     flex-direction: column;
 }
@@ -100,24 +107,17 @@ section img {
     border-radius: 15px;
 }
 
-/* CONTENEDOR INTERNO (clave) */
-.card-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-}
-
-/* TEXTO */
+/* TEXTO CARD */
 .card h3 {
     margin: 4px 0;
     font-size: 14px;
+    font-family: Arial;
 }
 
 .card p {
     font-size: 13px;
     line-height: 1.2;
+    font-family: Arial;
 }
 
 /* FLECHAS */
@@ -176,34 +176,26 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 
 <div class="card activa">
 <img src="Jorge.jpg">
-<div class="card-content">
 <h3>Jorge Rafael Videla</h3>
 <p>Este fue liderado por el teniente general Jorge Rafael Videla(1976-1981) uno de los mas conocidos.</p>
-</div>
 </div>
 
 <div class="card">
 <img src="viola.jpg">
-<div class="card-content">
 <h3>Roberto Viola</h3>
 <p>General del ejercito, Roberto Viola(1981-1981)</p>
-</div>
 </div>
 
 <div class="card">
 <img src="Galtieri.jpg">
-<div class="card-content">
 <h3>Leopoldo Galtieri</h3>
 <p>El teniente general Leopoldo Fortunato Galtieri(1981-1982) El presidente qué presentó la guerra a Reino Unido por las Islas Malvinas el 2 de Abril de 1982.</p>
-</div>
 </div>
 
 <div class="card">
 <img src="Bignone.png" style="object-position:center top;">
-<div class="card-content">
 <h3>Reynaldo Bignone</h3>
 <p>Terminando el gobierno militar con Reynaldo Benito Bignone(1982-1983) quien llamo a elecciones democraticas el 30 de octubre de 1983.</p>
-</div>
 </div>
 
 </section>
@@ -257,11 +249,12 @@ function mover(dir) {
     mostrar(index);
 }
 
-/* 🔥 AJUSTE SOLO DENTRO DEL P */
+/* AJUSTE TEXTO CARDS */
 function ajustarTexto() {
-    document.querySelectorAll(".card p").forEach(p => {
+    document.querySelectorAll(".card").forEach(card => {
+        const p = card.querySelector("p");
         let size = 13;
-        while (p.scrollHeight > p.clientHeight && size > 9) {
+        while (card.scrollHeight > card.clientHeight && size > 10) {
             size--;
             p.style.fontSize = size + "px";
         }
