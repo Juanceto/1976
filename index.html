@@ -90,13 +90,13 @@ section img {
 .card {
     display: none;
     width: 95%;
-    max-width: 480px;
+    max-width: 500px; /* más ancha */
     margin: 20px auto;
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 12px;
     text-align: center;
-    height: 260px;
+    height: 270px; /* más alta */
 
     flex-direction: column;
 }
@@ -255,12 +255,13 @@ function mover(dir) {
     mostrar(index);
 }
 
-/* AJUSTE TEXTO */
+/* AJUSTE TEXTO MEJORADO */
 function ajustarTexto() {
     document.querySelectorAll(".card").forEach(card => {
         const p = card.querySelector("p");
         let size = 13;
-        while (card.scrollHeight > card.clientHeight && size > 10) {
+
+        while (card.scrollHeight > card.clientHeight && size > 8) {
             size--;
             p.style.fontSize = size + "px";
         }
