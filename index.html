@@ -25,12 +25,17 @@ body {
     padding: 10px;
 }
 
+/* HEADER CENTRADO PERFECTO */
 header {
     height: 30vh;
     margin: 30px 10px;
-    border-radius: 60px;
+    border-radius: 45px;
     overflow: hidden;
     position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header img {
@@ -41,13 +46,12 @@ header img {
 
 .header-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    color: white;
     text-align: center;
+    color: white;
+    width: 100%;
 }
 
+/* SECCIONES */
 section {
     position: relative;
     background: rgba(255,255,255,0.25);
@@ -65,40 +69,49 @@ section img {
     border-radius: 10px;
 }
 
-/* CARD */
+/* CARD (ANCHA Y COMPACTA) */
 .card {
     display: none;
-    width: 85%;
+    width: 90%;
+    max-width: 420px;
     margin: 20px auto;
 
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 12px;
     text-align: center;
+
+    height: 240px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card.activa {
-    display: block;
+    display: flex;
 }
 
 /* IMAGEN */
 .card img {
     width: 100%;
-    height: 140px;
+    height: 110px;
     object-fit: cover;
     border-radius: 15px;
 }
 
 /* TEXTO */
 .card h3 {
-    margin: 8px 0;
+    margin: 6px 0;
+    font-size: 16px;
 }
 
 .card p {
-    font-size: 14px;
+    font-size: 13px;
+    overflow: hidden;
 }
 
-/* FLECHAS EN LOS BORDES DE LA SECCION */
+/* FLECHAS CHICAS EN BORDES */
 .flecha {
     position: absolute;
     top: 50%;
@@ -106,20 +119,27 @@ section img {
     background: black;
     color: white;
     border: none;
-    padding: 8px;
+    padding: 6px;
     border-radius: 50%;
     cursor: pointer;
     z-index: 10;
 }
 
-.izq { left: 10px; }
-.der { right: 10px; }
+.izq { left: 8px; }
+.der { right: 8px; }
 
+/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
     background: rgba(0,0,0,0.7);
     color: white;
+}
+
+@media (max-width: 600px) {
+    .card {
+        height: 220px;
+    }
 }
 </style>
 </head>
@@ -182,7 +202,22 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 <h2>Desaparecidos</h2>
 <img src="orletti.jpg">
 <p>
-Durante este gobierno de facto, hubo un estimado de 30.000 desaparecidos...
+Durante este gobierno de facto, hubo un estimado de 30.000 desaparecidos, por la causa de tener opinion diferente a la del gobierno, eran sorprendidos en sus casas a altas horas de la noche y transportados en los baules de los  Ford Falcon verde, estos eran llevados a centros clandestinos de detencion, donde eran torturados y maltratados, los mas conocidos son Automotores Orletti, un taller mecanico que ocultaba un centro de tortura y exterminio, y la ESMA (Escuela de Mecanica de la Armada)
+<img src="ESMA.jpg">
+<p></p>Estos secuestros podian llevarlos a los proclamados "Vuelos de la muerte", en los que se subian a los detenidos en un Lockheed C-130 Hercules (Avion de las Fuerzas Aereas Argentinas) y lanzados desde gran altura hacia el Rio de la Plata.
+Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo de America.
+<img src="Vuelos.jpg">
+</p>
+</section>
+
+<section>
+<h2>Abuelas/Madres de Plaza de Mayo</h2>
+<img src="Abuelas.jpg">
+<p>
+Frente a esta situacion, surgieron organizaciones de derechos humanos como las Madres de Plaza de Mayo y las Abuelas de Plaza de Mayo. Estas mujeres comenzaron a reunirse en la Plaza de Mayo para reclamar por sus hijos y nietos desaparecidos,caminaban dando vueltas alrededor de la plaza, con un pañuelo blanco en la cabeza que simbolizaba el pañal de los bebes desaparecidos. 
+<img src="Hebe.jpg">    
+<p></p>Entre sus principales referentes se destacaron Hebe de Bonafini y Estela de Carlotto, quienes se convirtieron en símbolos de la lucha por la memoria, la verdad y la justicia. Gracias a su trabajo, se logró recuperar la identidad de muchos nietos apropiados durante la dictadura.
+<img src="Nunca.png">
 </p>
 </section>
 
@@ -192,7 +227,7 @@ Durante este gobierno de facto, hubo un estimado de 30.000 desaparecidos...
 <p>Florecerán Pañuelos...<br>E.E.S.T N°3 Islas Malvinas Lanús</p>
 </footer>
 
-<!-- AUDIO -->
+<!-- AUDIO ORIGINAL -->
 <audio id="camelias" autoplay loop>
     <source src="camelias.mp3" type="audio/mpeg">
 </audio>
