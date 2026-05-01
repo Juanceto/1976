@@ -21,11 +21,11 @@ body {
     background-size: cover;
 }
 
-/* FUENTE STENCIL */
+/* 🔥 FUENTE STENCIL (AHORA AGARRA TODOS LOS P) */
 header h1,
 header p,
 section h2,
-section > p,
+section p,
 footer {
     font-family: 'Stardos Stencil', serif;
 }
@@ -60,13 +60,8 @@ header img {
     width: 100%;
 }
 
-.header-text h1 {
-    color: #d9d9d9;
-}
-
-.header-text p {
-    color: #eeeeee;
-}
+.header-text h1 { color: Red }
+.header-text p { color: Red }
 
 /* SECCIONES */
 section {
@@ -90,13 +85,13 @@ section img {
 .card {
     display: none;
     width: 95%;
-    max-width: 500px; /* más ancha */
+    max-width: 500px;
     margin: 20px auto;
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 12px;
     text-align: center;
-    height: 270px; /* más alta */
+    height: 270px;
 
     flex-direction: column;
 }
@@ -105,7 +100,6 @@ section img {
     display: flex;
 }
 
-/* IMAGEN */
 .card img {
     width: 100%;
     height: 120px;
@@ -113,7 +107,15 @@ section img {
     border-radius: 15px;
 }
 
-/* TEXTO CARD */
+/* CONTENEDOR TEXTO */
+.card-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* TEXTO CARD (SIN STENCIL) */
 .card h3 {
     margin: 4px 0;
     font-size: 14px;
@@ -182,26 +184,34 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 
 <div class="card activa">
 <img src="Jorge.jpg">
+<div class="card-text">
 <h3>Jorge Rafael Videla</h3>
 <p>Este fue liderado por el teniente general Jorge Rafael Videla(1976-1981) uno de los mas conocidos.</p>
+</div>
 </div>
 
 <div class="card">
 <img src="viola.jpg">
+<div class="card-text">
 <h3>Roberto Viola</h3>
 <p>General del ejercito, Roberto Viola(1981-1981)</p>
+</div>
 </div>
 
 <div class="card">
 <img src="Galtieri.jpg">
+<div class="card-text">
 <h3>Leopoldo Galtieri</h3>
 <p>El teniente general Leopoldo Fortunato Galtieri(1981-1982) El presidente qué presentó la guerra a Reino Unido por las Islas Malvinas el 2 de Abril de 1982.</p>
+</div>
 </div>
 
 <div class="card">
 <img src="Bignone.png" style="object-position:center top;">
+<div class="card-text">
 <h3>Reynaldo Bignone</h3>
 <p>Terminando el gobierno militar con Reynaldo Benito Bignone(1982-1983) quien llamo a elecciones democraticas el 30 de octubre de 1983.</p>
+</div>
 </div>
 
 </section>
@@ -255,15 +265,15 @@ function mover(dir) {
     mostrar(index);
 }
 
-/* AJUSTE TEXTO MEJORADO */
+/* 🔥 AJUSTE REAL COMPLETO */
 function ajustarTexto() {
     document.querySelectorAll(".card").forEach(card => {
-        const p = card.querySelector("p");
-        let size = 13;
+        const box = card.querySelector(".card-text");
+        let size = 14;
 
         while (card.scrollHeight > card.clientHeight && size > 8) {
             size--;
-            p.style.fontSize = size + "px";
+            box.style.fontSize = size + "px";
         }
     });
 }
