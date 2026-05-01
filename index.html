@@ -6,37 +6,39 @@
 <title>Dictadura en Argentina</title>
 
 <style>
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-
-    background-image: url('arg.jpg');
-    background-size: cover; /* 🔥 sin negro */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
-/* 📱 celular */
-@media (max-width: 768px) {
-    body {
-        background-attachment: scroll;
-        background-position: center top;
-    }
-}
-
-header {
-    position: relative;
-    text-align: center;
+body {
+    background: url('arg.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: white;
+    overflow-x: hidden;
+}
+
+/* CONTENEDOR GENERAL */
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* HEADER */
+header {
+    height: 30vh;
+    margin: 40px 0;
     border-radius: 80px;
     overflow: hidden;
-    margin: 20px;
+    position: relative;
 }
 
 header img {
     width: 100%;
-    height: 40vh;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -45,32 +47,46 @@ header img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
+/* GRID TIPO MALVINAS */
+.container {
+    column-count: 2;
+    column-gap: 20px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        column-count: 1;
+    }
+}
+
+/* CARDS */
 section {
-    padding: 30px;
-    margin: 20px auto;
-    border-radius: 25px;
-
-    background: rgba(255,255,255,0.6); /* 🔥 blanco transparente */
-    backdrop-filter: blur(6px);
-
-    max-width: 1000px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    display: inline-block;
+    width: 100%;
+    color: white;
 }
 
 section img {
     width: 100%;
-    max-width: 500px;
-    display: block;
-    margin: 15px auto;
+    margin-top: 10px;
     border-radius: 10px;
 }
 
 h2 {
     text-align: center;
+    margin-bottom: 10px;
 }
 
-/* 🔥 SLIDER */
+/* 🔥 SLIDER ESTILO PAGINA */
 .slider-container {
     position: relative;
     overflow: hidden;
@@ -78,7 +94,6 @@ h2 {
 
 .slider {
     display: flex;
-    width: 100%;
     transition: transform 0.4s ease;
 }
 
@@ -87,8 +102,9 @@ h2 {
     padding: 20px;
     text-align: center;
 
-    background: rgba(255,255,255,0.85); /* 🔥 blanco más claro */
-    border-radius: 20px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
 }
 
 .card img {
@@ -96,14 +112,14 @@ h2 {
     height: 180px;
     object-fit: cover;
     object-position: center;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .flecha {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #111;
+    background: black;
     color: white;
     border: none;
     padding: 10px;
@@ -118,13 +134,15 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background: #111;
-    color: white;
+    background: rgba(0,0,0,0.7);
+    margin-top: 40px;
 }
 </style>
 </head>
 
 <body>
+
+<div class="wrapper">
 
 <header>
     <img src="Milicos.jpg">
@@ -134,9 +152,11 @@ footer {
     </div>
 </header>
 
+<div class="container">
+
 <section>
     <h2>El inicio de un gobierno de facto</h2>
-    <img src="Jorge.jpg">
+    <img src="Videla.jpg">
     <p>
         El 24 de marzo de 1976 comenzó en Argentina una dictadura militar que tomó el poder mediante un golpe de Estado. 
         Este período, conocido como el Proceso de Reorganización Nacional, estuvo marcado por la represion, la censura y la violación de los derechos humanos. 
@@ -155,7 +175,7 @@ footer {
         <div class="slider" id="slider">
 
             <div class="card">
-                <img src="Videla.jpg">
+                <img src="Jorge.jpg">
                 <h3>Jorge Rafael Videla</h3>
                 <p>Este fue liderado por el teniente general Jorge Rafael Videla(1976-1981) uno de los mas conocidos.</p>
             </div>
@@ -205,13 +225,12 @@ footer {
     </p>
 </section>
 
+</div>
+</div>
+
 <footer>
     <p>Florecerán Pañuelos...<br>E.E.S.T N°3 Islas Malvinas Lanús</p>
 </footer>
-
-<audio id="camelias" autoplay loop>
-    <source src="camelias.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 let index = 0;
@@ -227,18 +246,6 @@ function mover(dir) {
 
     slider.style.transform = "translateX(-" + (index * 100) + "%)";
 }
-
-const audio = document.getElementById("camelias");
-audio.volume = 0.2;
-
-document.addEventListener("click", () => {
-    audio.play();
-});
-
-document.addEventListener("visibilitychange", () => {
-    if (document.hidden) audio.pause();
-    else audio.play();
-});
 </script>
 
 </body>
