@@ -21,13 +21,17 @@ body {
     background-size: cover;
 }
 
-/* 🔥 FUENTE STENCIL (AHORA AGARRA TODOS LOS P) */
-header h1,
-header p,
-section h2,
-section p,
+/* FUENTE STENCIL */
+header,
+section,
 footer {
     font-family: 'Stardos Stencil', serif;
+}
+
+/* CARDS siguen en Arial */
+.card,
+.card * {
+    font-family: Arial !important;
 }
 
 .wrapper {
@@ -60,8 +64,14 @@ header img {
     width: 100%;
 }
 
-.header-text h1 { color: Red }
-.header-text p { color: Red }
+/* 🔥 CAMBIO A BORDÓ */
+.header-text h1 {
+    color: #8B0000;
+}
+
+.header-text p {
+    color: #eeeeee;
+}
 
 /* SECCIONES */
 section {
@@ -92,7 +102,6 @@ section img {
     padding: 12px;
     text-align: center;
     height: 270px;
-
     flex-direction: column;
 }
 
@@ -107,25 +116,21 @@ section img {
     border-radius: 15px;
 }
 
-/* CONTENEDOR TEXTO */
+/* TEXTO SCROLL INTERNO */
 .card-text {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    overflow-y: auto;
+    padding-right: 4px;
 }
 
-/* TEXTO CARD (SIN STENCIL) */
 .card h3 {
     margin: 4px 0;
     font-size: 14px;
-    font-family: Arial;
 }
 
 .card p {
     font-size: 13px;
     line-height: 1.2;
-    font-family: Arial;
 }
 
 /* FLECHAS */
@@ -186,7 +191,7 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 <img src="Jorge.jpg">
 <div class="card-text">
 <h3>Jorge Rafael Videla</h3>
-<p>Este fue liderado por el teniente general Jorge Rafael Videla(1976-1981) uno de los mas conocidos.</p>
+<p>Este fue liderado por el teniente general Jorge Rafael Videla(1976-1981) el mas conocido y longevo en el cargo</p>
 </div>
 </div>
 
@@ -221,9 +226,9 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 <img src="orletti.jpg">
 <p>
 Durante este gobierno de facto, hubo un estimado de 30.000 desaparecidos, por la causa de tener opinion diferente a la del gobierno, eran sorprendidos en sus casas a altas horas de la noche y transportados en los baules de los  Ford Falcon verde, estos eran llevados a centros clandestinos de detencion, donde eran torturados y maltratados, los mas conocidos son Automotores Orletti, un taller mecanico que ocultaba un centro de tortura y exterminio, y la ESMA (Escuela de Mecanica de la Armada)
-<img src="ESMA.jpg">
-<p></p>Estos secuestros podian llevarlos a los proclamados "Vuelos de la muerte", en los que se subian a los detenidos en un Lockheed C-130 Hercules (Avion de las Fuerzas Aereas Argentinas) y lanzados desde gran altura hacia el Rio de la Plata.
-Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo de America.
+</p><img src="ESMA.jpg">
+<p>Estos secuestros podian llevarlos a los proclamados "Vuelos de la muerte", en los que se subian a los detenidos en un Lockheed C-130 Hercules (Avion de las Fuerzas Aereas Argentinas) y lanzados desde gran altura hacia el Rio de la Plata.
+Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo de America.</p>
 <img src="Vuelos.jpg">
 </p>
 </section>
@@ -232,9 +237,9 @@ Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo d
 <h2>Abuelas/Madres de Plaza de Mayo</h2>
 <img src="Abuelas.jpg">
 <p>
-Frente a esta situacion, surgieron organizaciones de derechos humanos como las Madres de Plaza de Mayo y las Abuelas de Plaza de Mayo.<br> Estas mujeres comenzaron a reunirse en la Plaza de Mayo para reclamar por sus hijos y nietos desaparecidos,<br>caminaban dando vueltas alrededor de la plaza, con un pañuelo blanco en la cabeza que simbolizaba el pañal de los bebes desaparecidos. 
-<img src="Hebe.jpg">    
-<p></p>Entre sus principales referentes se destacaron Hebe de Bonafini y Estela de Carlotto, quienes se convirtieron en símbolos de la lucha por la memoria, la verdad y la justicia. Gracias a su trabajo, se logró recuperar la identidad de muchos nietos apropiados durante la dictadura.
+Frente a esta situacion, surgieron organizaciones de derechos humanos como las Madres de Plaza de Mayo y las Abuelas de Plaza de Mayo.<br> Estas mujeres comenzaron a reunirse en la Plaza de Mayo para reclamar por sus hijos y nietos desaparecidos,<br>caminaban dando vueltas alrededor de la plaza, con un pañuelo blanco en la cabeza que simbolizaba el pañal de los bebes desaparecidos.
+</p><img src="Hebe.jpg">    
+<p>Entre sus principales referentes se destacaron Hebe de Bonafini y Estela de Carlotto, quienes se convirtieron en símbolos de la lucha por la memoria, la verdad y la justicia. Gracias a su trabajo, se logró recuperar la identidad de muchos nietos apropiados durante la dictadura.</p>
 <img src="Nunca.png">
 </p>
 </section>
@@ -264,21 +269,6 @@ function mover(dir) {
     if (index >= cards.length) index = cards.length - 1;
     mostrar(index);
 }
-
-/* 🔥 AJUSTE REAL COMPLETO */
-function ajustarTexto() {
-    document.querySelectorAll(".card").forEach(card => {
-        const box = card.querySelector(".card-text");
-        let size = 14;
-
-        while (card.scrollHeight > card.clientHeight && size > 8) {
-            size--;
-            box.style.fontSize = size + "px";
-        }
-    });
-}
-
-window.onload = ajustarTexto;
 
 /* AUDIO */
 const audio = document.getElementById("camelias");
