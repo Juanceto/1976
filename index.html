@@ -23,8 +23,7 @@ body {
 
 /* FUENTE STENCIL */
 header,
-section
- {
+section {
     font-family: 'Stardos Stencil', serif;
 }
 
@@ -64,7 +63,6 @@ header img {
     width: 100%;
 }
 
-/* 🔥 CAMBIO A BORDÓ */
 .header-text h1 {
     color: #8B0000;
 }
@@ -91,18 +89,24 @@ section img {
     border-radius: 10px;
 }
 
+/* CONTENEDOR DE CARDS: padding lateral para que las flechas no tapen */
+.cards-wrapper {
+    padding: 0 44px;
+}
+
 /* CARD */
 .card {
     display: none;
-    width: 95%;
-    max-width: 500px;
-    margin: 20px auto;
+    width: 100%;
+    max-width: 460px;
+    margin: 16px auto 0;
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
-    padding: 12px;
+    padding: 14px;
     text-align: center;
-    height: 270px;
+    height: 280px;
     flex-direction: column;
+    align-items: center;
 }
 
 .card.activa {
@@ -111,26 +115,31 @@ section img {
 
 .card img {
     width: 100%;
-    height: 120px;
+    height: 130px;
     object-fit: cover;
-    border-radius: 15px;
+    object-position: center top;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto 8px;
+    flex-shrink: 0;
 }
 
 /* TEXTO SCROLL INTERNO */
 .card-text {
     flex: 1;
     overflow-y: auto;
-    padding-right: 4px;
+    padding: 0 4px;
+    width: 100%;
 }
 
 .card h3 {
-    margin: 4px 0;
+    margin: 0 0 4px;
     font-size: 14px;
 }
 
 .card p {
     font-size: 13px;
-    line-height: 1.2;
+    line-height: 1.3;
 }
 
 /* FLECHAS */
@@ -141,13 +150,19 @@ section img {
     background: black;
     color: white;
     border: none;
-    padding: 6px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
 }
 
-.izq { left: 8px; }
-.der { right: 8px; }
+.izq { left: 10px; }
+.der { right: 10px; }
 
 /* FOOTER */
 footer {
@@ -187,38 +202,41 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 <button class="flecha izq" onclick="mover(-1)">❮</button>
 <button class="flecha der" onclick="mover(1)">❯</button>
 
-<div class="card activa">
-<img src="Jorge.jpg">
-<div class="card-text">
-<h3>Jorge Rafael Videla</h3>
-<p><strong>Primer mandato liderado porteniente general Jorge Rafael Videla(1976-1981) el mas conocido y longevo en el cargo</strong></p>
-</div>
-</div>
+<div class="cards-wrapper">
 
-<div class="card">
-<img src="viola.jpg">
-<div class="card-text">
-<h3>Roberto Viola</h3>
-<p><strong>General del ejercito, Roberto Viola(1981-1981)</strong></p>
-</div>
-</div>
+    <div class="card activa">
+        <img src="Jorge.jpg">
+        <div class="card-text">
+            <h3>Jorge Rafael Videla</h3>
+            <p><strong>Primer mandato liderado por el teniente general Jorge Rafael Videla (1976–1981), el más conocido y longevo en el cargo.</strong></p>
+        </div>
+    </div>
 
-<div class="card">
-<img src="Galtieri.jpg">
-<div class="card-text">
-<h3>Leopoldo Galtieri</h3>
-<p><strong>El teniente general Leopoldo Fortunato Galtieri(1981-1982) El presidente qué presentó la guerra a Reino Unido por las Islas Malvinas el 2 de Abril de 1982.</strong></p>
-</div>
-</div>
+    <div class="card">
+        <img src="viola.jpg">
+        <div class="card-text">
+            <h3>Roberto Viola</h3>
+            <p><strong>General del ejército Roberto Viola (1981–1981).</strong></p>
+        </div>
+    </div>
 
-<div class="card">
-<img src="Bignone.png" style="object-position:center top;">
-<div class="card-text">
-<h3>Reynaldo Bignone</h3>
-<p><strong>Terminando el gobierno militar con Reynaldo Benito Bignone(1982-1983) quien llamo a elecciones democraticas el 30 de octubre de 1983.</strong></p>
-</div>
-</div>
+    <div class="card">
+        <img src="Galtieri.jpg">
+        <div class="card-text">
+            <h3>Leopoldo Galtieri</h3>
+            <p><strong>El teniente general Leopoldo Fortunato Galtieri (1981–1982). Ordenó la guerra contra el Reino Unido por las Islas Malvinas el 2 de abril de 1982.</strong></p>
+        </div>
+    </div>
 
+    <div class="card">
+        <img src="Bignone.png" style="object-position: center top;">
+        <div class="card-text">
+            <h3>Reynaldo Bignone</h3>
+            <p><strong>Reynaldo Benito Bignone (1982–1983) cerró el gobierno militar convocando a elecciones democráticas el 30 de octubre de 1983.</strong></p>
+        </div>
+    </div>
+
+</div><!-- /.cards-wrapper -->
 </section>
 
 <section>
@@ -230,7 +248,6 @@ Durante este gobierno de facto, hubo un estimado de 30.000 desaparecidos, por la
 <p>Estos secuestros podian llevarlos a los proclamados "Vuelos de la muerte", en los que se subian a los detenidos en un Lockheed C-130 Hercules (Avion de las Fuerzas Aereas Argentinas) y lanzados desde gran altura hacia el Rio de la Plata.
 Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo de America.</p>
 <img src="Vuelos.jpg">
-</p>
 </section>
 
 <section>
@@ -241,7 +258,6 @@ Frente a esta situacion, surgieron organizaciones de derechos humanos como las M
 </p><img src="Hebe.jpg">    
 <p>Entre sus principales referentes se destacaron Hebe de Bonafini y Estela de Carlotto, quienes se convirtieron en símbolos de la lucha por la memoria, la verdad y la justicia. Gracias a su trabajo, se logró recuperar la identidad de muchos nietos apropiados durante la dictadura.</p>
 <img src="Nunca.png">
-</p>
 </section>
 
 </div>
