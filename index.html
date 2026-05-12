@@ -84,10 +84,13 @@ section {
 }
 
 section img {
-    width: 100%;
-    max-height: 480px;
-    object-fit: cover;
-    margin-top: 10px;
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    margin: 10px auto 0;
     border-radius: 10px;
 }
 
@@ -100,14 +103,13 @@ section img {
 .card {
     display: none;
     width: 95%;
-    max-width: 500px;
+    max-width: 400px;
     margin: 16px auto 0;
     background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 14px;
     text-align: center;
     height: auto;
-    min-height: 340px;
     flex-direction: column;
     align-items: center;
 }
@@ -117,12 +119,13 @@ section img {
 }
 
 .card img {
-    width: 95%;
-    height: auto;
-    max-height: 220px;
-    object-fit: cover;
-    border-radius: 12px;
     display: block;
+    width: auto;
+    max-width: 90%;
+    height: auto;
+    max-height: 240px;
+    object-fit: contain;
+    border-radius: 12px;
     margin: 0 auto 8px;
     flex-shrink: 0;
 }
@@ -178,8 +181,7 @@ footer {
 /* DESKTOP */
 @media (min-width: 768px) {
     .card {
-        max-width: 620px;
-        min-height: 380px;
+        max-width: 420px;
     }
 
     .card img {
@@ -187,7 +189,7 @@ footer {
     }
 
     section img {
-        max-height: 520px;
+        max-height: 420px;
     }
 }
 </style>
@@ -257,6 +259,7 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 
 </div><!-- /.cards-wrapper -->
 </section>
+
 <section>
     <h2>Mundial 1978</h2>
     <p>Durante este <strong>"Proceso De Reorganización Nacional"</strong> se llevó a cabo el Mundial de Fútbol organizado por la <b>FIFA</b>, siendo Argentina sede de la competición.
@@ -268,8 +271,9 @@ Miles de personas fueron secuestradas, torturadas y desaparecidas por el Estado.
 <h2>Desaparecidos</h2>
 <img src="orletti.jpg">
 <p>
-Durante este gobierno de facto, hubo un estimado de 30.000 desaparecidos, por la causa de tener opinion diferente a la del gobierno, eran sorprendidos en sus casas a altas horas de la noche y transportados en los baules de los  Ford Falcon verde, estos eran llevados a centros clandestinos de detencion, donde eran torturados y maltratados, los mas conocidos son Automotores Orletti, un taller mecanico que ocultaba un centro de tortura y exterminio, y la ESMA (Escuela de Mecanica de la Armada)
-</p><img src="ESMA.jpg">
+Durante este gobierno de facto, hubo un estimado de 30.000 desaparecidos, por la causa de tener opinion diferente a la del gobierno, eran sorprendidos en sus casas a altas horas de la noche y transportados en los baules de los Ford Falcon verde, estos eran llevados a centros clandestinos de detencion, donde eran torturados y maltratados, los mas conocidos son Automotores Orletti, un taller mecanico que ocultaba un centro de tortura y exterminio, y la ESMA (Escuela de Mecanica de la Armada)
+</p>
+<img src="ESMA.jpg">
 <p>Estos secuestros podian llevarlos a los proclamados "Vuelos de la muerte", en los que se subian a los detenidos en un Lockheed C-130 Hercules (Avion de las Fuerzas Aereas Argentinas) y lanzados desde gran altura hacia el Rio de la Plata.
 Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo de America.</p>
 <img src="Vuelos.jpg">
@@ -280,7 +284,8 @@ Esto era parte del Plan Condor de Estados Unidos, para exterminar el comunismo d
 <img src="Abuelas.jpg">
 <p>
 Frente a esta situacion, surgieron organizaciones de derechos humanos como las Madres de Plaza de Mayo y las Abuelas de Plaza de Mayo.<br> Estas mujeres comenzaron a reunirse en la Plaza de Mayo para reclamar por sus hijos y nietos desaparecidos,<br>caminaban dando vueltas alrededor de la plaza, con un pañuelo blanco en la cabeza que simbolizaba el pañal de los bebes desaparecidos.
-</p><img src="Hebe.jpg">    
+</p>
+<img src="Hebe.jpg">
 <p>Entre sus principales referentes se destacaron Hebe de Bonafini y Estela de Carlotto, quienes se convirtieron en símbolos de la lucha por la memoria, la verdad y la justicia. Gracias a su trabajo, se logró recuperar la identidad de muchos nietos apropiados durante la dictadura.</p>
 <img src="Nunca.png">
 </section>
